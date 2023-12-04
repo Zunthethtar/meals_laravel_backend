@@ -44,10 +44,7 @@
         <!-- ============================================================== -->
         <!-- Start right Content here -->
         <!-- ============================================================== -->
-        <div class="main-content">
-
-            <div class="page-content">
-                <div class="container-fluid">
+  
                     @yield('content')
 
                     <!-- start page title -->
@@ -66,17 +63,25 @@
 
                     <!--end modal -->
 
-                </div>
-                <!-- container-fluid -->
-            </div>
-            <!-- End Page-content -->
-
-
-
-
-
-
-        </div>
+        <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="assets/libs/node-waves/waves.min.js"></script>
+        <script src="assets/libs/feather-icons/feather.min.js"></script>
+        <script src="assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
+        <script src="assets/js/plugins.js"></script>
+        <!-- prismjs plugin -->
+        <script src="assets/libs/prismjs/prism.js"></script>
+        <script src="assets/libs/list.js/list.min.js"></script>
+        <script src="assets/libs/list.pagination.js/list.pagination.min.js"></script>
+    
+        <!-- listjs init -->
+        <script src="assets/js/pages/listjs.init.js"></script>
+    
+        <!-- Sweet Alerts js -->
+        <script src="assets/libs/sweetalert2/sweetalert2.min.js"></script>
+    
+        <!-- App js -->
+        <script src="assets/js/app.js"></script>
 </body>
 
 </html>

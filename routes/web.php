@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,4 +18,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('admin.layouts.master');
 });
-Route::resource('/product',ProductController::class);
+Route::resource('/products',ProductController::class);
+
+
+
+
+Route::get('/categories/index',[CategoryController::class,'index']);
+Route::get('/categories/create',[CategoryController::class,'create']);
+Route::post('/categories/store',[CategoryController::class,'store']);
+Route::get('/categories/{id}/edit',[CategoryController::class,'edit']);
+Route::post('/categories/update/{id}',[CategoryController::class,'update']);
+Route::get('/categories/{id}/delete',[CategoryController::class,'delete']);

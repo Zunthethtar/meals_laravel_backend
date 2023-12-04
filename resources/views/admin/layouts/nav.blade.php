@@ -34,31 +34,23 @@
                  <ul class="navbar-nav" id="navbar-nav">
                      <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                      <li class="nav-item">
-                         <a class="nav-link menu-link" href="#sidebarLayouts" data-bs-toggle="collapse" role="button"
-                             aria-expanded="false" aria-controls="sidebarLayouts">
-                             <i class="ri-layout-3-line"></i> <span data-key="t-layouts">Layouts</span>
-                         </a>
+                        <a class="nav-link menu-link" href="#sidebarLayouts" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarLayouts" data-bs-target="#sidebarLayouts">
+                        <i class="ri-layout-3-line"></i> <span data-key="t-layouts">Layouts</span>
+                     </a>
                          <div class="collapse menu-dropdown" id="sidebarLayouts">
                              <ul class="nav nav-sm flex-column">
                                  <li class="nav-item">
-                                     <a href="{{ url('/products') }}" class="nav-link"
-                                         data-key="t-horizontal">Categories</a>
+                                     <a href="{{ url('/categories/index') }}" class="nav-link"
+                                        >Categories</a>
                                  </li>
                                  <li class="nav-item">
-                                    <a href="{{ url('/category') }}" class="nav-link"
-                                        data-key="t-horizontal">Products</a>
+                                    <a href="{{ url('/products') }}" class="nav-link"
+                                        >Products</a>
                                 </li>
-
-
                              </ul>
                          </div>
                      </li> <!-- end Dashboard Menu -->
-
-
-
-
-
-
                  </ul>
              </div>
              <!-- Sidebar -->
