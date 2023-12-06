@@ -18,9 +18,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('admin.layouts.master');
 });
-Route::resource('/products',ProductController::class);
 
 
+
+Route::get('/products/index',[ProductController::class,'index']);
+Route::get('/products/create',[ProductController::class,'create']);
+Route::post('/products/store',[ProductController::class,'store']);
+Route::get('/products/{id}/edit',[ProductController::class,'edit']);
+Route::post('/products/update/{id}',[ProductController::class,'update']);
+Route::get('/products/{id}/delete',[ProductController::class,'delete']);
 
 
 Route::get('/categories/index',[CategoryController::class,'index']);

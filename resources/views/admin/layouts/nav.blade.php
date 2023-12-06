@@ -45,7 +45,7 @@
                                         >Categories</a>
                                  </li>
                                  <li class="nav-item">
-                                    <a href="{{ url('/products') }}" class="nav-link"
+                                    <a href="{{ url('/products/index') }}" class="nav-link"
                                         >Products</a>
                                 </li>
                              </ul>

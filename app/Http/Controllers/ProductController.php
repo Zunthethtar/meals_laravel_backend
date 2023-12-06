@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\ProductInterface;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -9,9 +11,15 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
+    private $productRepository;
+
+    public function __construct(ProductInterface $productRepository){
+        $this->productRepository = $productRepository;
+    }
     public function index()
     {
-        return view('admin/products/index');
+        $products = $this->productRepository->index();
+        return view('admin/products/index',compact('products'));
     }
 
     /**
@@ -19,7 +27,10 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories=Category::all();
+        $this->productRepository->create();
+        return view('admin/products/create', compact('categories'));
+
     }
 
     /**
@@ -27,7 +38,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->productRepository->store($request);
+        return redirect('products/index');
     }
 
     /**
@@ -41,9 +53,11 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $categories=Category::all();
+        $product = $this->productRepository->edit($id);
+        return view('admin.products.edit',compact('product',"categories"));
     }
 
     /**
@@ -51,14 +65,16 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $this->productRepository->update($id,$request);
+        return redirect("products/index");
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function delete($id)
     {
-        //
+        $this->productRepository->delete($id);
+        return redirect("products/index");
     }
 }
