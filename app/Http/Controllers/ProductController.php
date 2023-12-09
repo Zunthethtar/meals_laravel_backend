@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Interfaces\ProductInterface;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -28,6 +29,7 @@ class ProductController extends Controller
     public function create()
     {
         $categories=Category::all();
+
         $this->productRepository->create();
         return view('admin/products/create', compact('categories'));
 
@@ -57,13 +59,14 @@ class ProductController extends Controller
     {
         $categories=Category::all();
         $product = $this->productRepository->edit($id);
+
         return view('admin.products.edit',compact('product',"categories"));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request,$id)
     {
         $this->productRepository->update($id,$request);
         return redirect("products/index");

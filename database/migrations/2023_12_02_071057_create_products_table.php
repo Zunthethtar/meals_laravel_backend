@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("name")->nullable();
             $table->foreignId("category_id")->nullable();
             $table->text("description")->nullable();
-            $table->string("image")->nullable();
+            $table->string("image", 255);
             $table->decimal("price")->nullable();
             $table->timestamps();
         });

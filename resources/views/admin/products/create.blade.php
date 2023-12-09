@@ -41,7 +41,7 @@
 
                             <div class="mb-3">
                                 <label for="image" class="form-label">Image</label>
-                                <input type="file" name="image" class="form-control" accept="image/*">
+                                <input type="file" name="image" class="form-control" accept="image/*" >
                             </div>
 
                             <div class="mb-3">
@@ -61,5 +61,6 @@
             </div>
         </div>
     </div>
+
 @endsection
 

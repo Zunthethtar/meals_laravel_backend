@@ -32,49 +32,67 @@ class ProductRepository implements ProductInterface{
         // Save the image to the public/images directory
         $request->image->move(public_path('images'), $imageName);
     
-        // Save only the image file name (not the full path) in the database
         $product->image = $imageName;
     
         $product->price = $request->price;
         $product->save();    
     }
     public function edit($id){
+        
         return  Product::findOrFail($id);
     }
-  // ProductRepository.php
-public function update($id,$request)
-{
-    $request->validate([
-        'name' => "required|unique:products,name,$id",
-        'category_id' => "required|exists:categories,id",
-        'description' => "string",
-        'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'price' => "string"
-    ]);
+    public function update($id, $request)
+    {
+        $request->validate([
+            'name' => "required|unique:products,name,$id",
+            'category_id' => "required|exists:categories,id",
+            'description' => "string",
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'price' => "string"
+        ]);
 
-    $product = $this->FindId($id);
-
-    $product->name = $request->name;
-    $product->category_id = $request->category_id;
-    $product->description = $request->description;
-
-    $imageName = time().'.'.$request->image->extension();  
-
-        // Save the image to the public/images directory
-    $request->image->move(public_path('images'), $imageName);
+        $product = $this->FindId($id);
+        $product->name = $request->name;
+        $product->category_id = $request->category_id;
+        $product->description = $request->description;
+        $product->price = $request->price;
     
-        // Save only the image file name (not the full path) in the database
-    $product->image = $imageName;
-    $product->price = $request->price;
-    $product->update();
+        if ($request->hasFile('image')) {
+            // Delete existing image
+            if ($product->image) {
+                $imagePath = public_path('images/' . $product->image);
+                if (file_exists($imagePath)) {
+                    unlink($imagePath);
+                }
+            }
+    
+            // Update with the new image
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+            $product->image = $imageName;
+
+        $product->update();
+    }
 }
+    
 
 
     public function FindId($id){
         return Product::findOrFail($id);
     }
-    public function delete($id){
-        $product=$this->FindId($id);
+    public function delete($id)
+    {
+        $product = $this->FindId($id);
+    
+        // Delete associated image file
+        if ($product->image) {
+            $imagePath = public_path('images/' . $product->image);
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+        }
+    
+        // Delete the product
         $product->delete();
     }
 
