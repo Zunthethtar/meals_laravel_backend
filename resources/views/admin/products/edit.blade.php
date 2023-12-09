@@ -32,7 +32,9 @@
                     <label for="image" class="form-label">Image</label>
                     <input type="file" name="image" class="form-control" accept="image/*">
                     @if ($product->image)
-                        <img src="{{ asset('images/' . $product->image) }}" alt="Current Image" class="mt-2" height="60">
+                    <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}" class="mt-2" height="60">
+                    
+                    <input type="text" class="form-control" value="{{ asset('images/' . $product->image) }}" readonly>
                     @endif
                     <label class="form-label mt-3">Price</label>
                     <input type="text" class="form-control" name="price" value="{{ $product->price }}">

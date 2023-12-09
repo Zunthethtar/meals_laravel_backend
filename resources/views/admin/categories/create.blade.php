@@ -20,7 +20,7 @@
                     <div class="d-flex flex-row mt-2">
                         <button type="submit" class="btn btn-sm btn-success">Save</button>
                         <a href="{{ url('categories/index') }}" class="ms-2">
-                            <button class="btn btn-sm btn-primary">Cancel</button>
+                            <button type="button" class="btn btn-sm btn-primary">Cancel</button>
                         </a>
                     </div>
                 </form>
