@@ -17,7 +17,7 @@
                                         <div class="col-sm-auto">
                                             <div>
                                                 <a href="{{ url('products/create') }}">
-                                                    <button class="btn btn-success me-md-2 mb-2 ">+ Add</button>
+                                                    <button style="background-color: #405189;"class="btn btn-primary">+ Add</button>
                                                 </a>
                                             </div>
                                         </div>
@@ -31,9 +31,9 @@
                                         </div>
                                     </div>
 
-                                    <div class="table-responsive table-card mt-3 mb-1">
-                                        <table class="table align-middle table-nowrap" id="customerTable">
-                                            <thead class="table-light">
+                                    <div class="table-responsive table-card mt-3 mb-1 p-3">
+                                        <table class="table table-bordered border-primary" id="customerTable">
+                                            <thead style="background-color: #405189; color: white;">
                                                 <tr>
                                                     <th scope="col" style="width: 50px;">
                                                         <div class="form-check">
@@ -48,6 +48,7 @@
                                                     <th class="sort">Process</th>
                                                 </tr>
                                             </thead>
+                                            
                                             <tbody>
                                                 @foreach ($products as $product)
                                                     <tr>
@@ -57,14 +58,14 @@
                                                         <td>{{ $product->description }}</td>
                                                         <td>
                                                             @if ($product->image)
-                                                                <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name}}" height="80">
+                                                                <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}" width="100" style="height: auto;">
                                                             @else
                                                                 No Image
                                                             @endif
                                                         </td>
                                                         <td>{{ $product->price }}</td>
                                                         <td>
-                                                            <div class=" d-flex  ">
+                                                            <div class="d-flex">
                                                                 <a href="{{ url('products/' . $product->id . '/edit') }}">
                                                                     <button class="btn btn-sm btn-success edit-item-btn">Edit</button>
                                                                 </a>
@@ -90,4 +91,5 @@
         </div>
     </div>
 @endsection
+
 

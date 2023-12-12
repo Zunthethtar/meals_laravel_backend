@@ -15,6 +15,7 @@
             <div class="container-fluid">
                 <form method='POST'enctype="multipart/form-data" action="{{ url('products/update/' . $product->id) }}">
                     @csrf
+                    @method('POST')
                     <label class="form-label mt-3">Product Name</label>
                     <input type="text" class="form-control" name="name" value="{{ $product->name }}">
                     <label class="form-label mt-3">Category</label>
@@ -32,7 +33,7 @@
                     <label for="image" class="form-label">Image</label>
                     <input type="file" name="image" class="form-control" accept="image/*">
                     @if ($product->image)
-                    <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}" class="mt-2" height="60">
+                    <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}" class="mt-2" width="100" style="height: auto;">
                     
                     <input type="text" class="form-control" value="{{ asset('images/' . $product->image) }}" readonly>
                     @endif

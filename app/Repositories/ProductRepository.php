@@ -42,37 +42,38 @@ class ProductRepository implements ProductInterface{
         return  Product::findOrFail($id);
     }
     public function update($id, $request)
-    {
-        $request->validate([
-            'name' => "required|unique:products,name,$id",
-            'category_id' => "required|exists:categories,id",
-            'description' => "string",
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'price' => "string"
-        ]);
+{
+    $request->validate([
+        'name' => 'required|unique:products,name,'.$id,
+        'category_id' => "required|exists:categories,id",
+        'description' => "string",
+        'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'price' => "string"
+    ]);
 
-        $product = $this->FindId($id);
-        $product->name = $request->name;
-        $product->category_id = $request->category_id;
-        $product->description = $request->description;
-        $product->price = $request->price;
-    
-        if ($request->hasFile('image')) {
-            // Delete existing image
-            if ($product->image) {
-                $imagePath = public_path('images/' . $product->image);
-                if (file_exists($imagePath)) {
-                    unlink($imagePath);
-                }
+    $product = $this->FindId($id);
+    $product->name = $request->name;
+    $product->category_id = $request->category_id;
+    $product->description = $request->description;
+    $product->price = $request->price;
+
+    if ($request->hasFile('image')) {
+        // Delete existing image
+        if ($product->image) {
+            $imagePath = public_path('images/' . $product->image);
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
             }
-    
-            // Update with the new image
-            $imageName = time() . '.' . $request->image->extension();
-            $request->image->move(public_path('images'), $imageName);
-            $product->image = $imageName;
+        }
 
-        $product->update();
+        // Update with the new image
+        $imageName = time() . '.' . $request->image->extension();
+        $request->image->move(public_path('images'), $imageName);
+        $product->image = $imageName;
     }
+
+    $product->update();
+    
 }
     
 
