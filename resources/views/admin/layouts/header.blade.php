@@ -849,20 +849,6 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row d-flex justify-content-center align-items-center">
-                <div class="col-auto">
-                    URL(category index)
-                    <a class="nav-link btn btn-outline-secondary" href="{{ url('categories/index') }}">Category</a>
-                </div>
-                <div class="col-auto">
-                    URL(product index)
-
-                    <a class="nav-link btn btn-outline-secondary" href="{{ url('products/index') }}">Product</a>
-                </div>
-
-            </div>
-        </div>
 
 
 </header>

@@ -38,15 +38,15 @@
                         aria-expanded="false" aria-controls="sidebarLayouts" data-bs-target="#sidebarLayouts">
                         <i class="ri-layout-3-line"></i> <span data-key="t-layouts">Layouts</span>
                      </a>
-                         <div class="collapse menu-dropdown" id="sidebarLayouts">
+                         <div class="collapse menu-dropdown ms-4" id="sidebarLayouts">
                              <ul class="nav nav-sm flex-column">
                                  <li class="nav-item">
-                                     <a href="{{ url('/categories/index') }}" class="nav-link"
-                                        >Categories</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a href="{{ url('/products/index') }}" class="nav-link"
-                                        >Products</a>
+                                    <a class="dropdown-item" style="color: white;" href="{{ url('categories/index') }}">Categories</a>
+                                    </li>
+                                    
+                                 <li class="nav-item mt-1">
+                                    <a class="dropdown-item" style="color: white;"  href="{{ url('products/index') }}">Products</a>
+
                                 </li>
                              </ul>
                          </div>

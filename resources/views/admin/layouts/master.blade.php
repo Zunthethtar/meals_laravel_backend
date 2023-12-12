@@ -83,6 +83,8 @@
     
         <!-- App js -->
         <script src="assets/js/app.js"></script>
+        <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
 </body>
 
 </html>
