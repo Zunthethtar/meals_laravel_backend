@@ -32,6 +32,7 @@
 
     <!-- Begin page -->
     <div id="layout-wrapper">
+
         @include('admin.layouts.header')
 
         @include('admin.layouts.nav')

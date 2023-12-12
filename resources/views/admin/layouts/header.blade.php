@@ -21,7 +21,9 @@
                             <img src="{{ asset('assets/images/logo-light.png')}}" alt="" height="17">
                         </span>
                     </a>
+
                 </div>
+
 
                 <button type="button" class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger"
                     id="topnav-hamburger-icon">
@@ -845,6 +847,20 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-auto">
+                    URL(category index)
+                    <a class="nav-link btn btn-outline-secondary" href="{{ url('categories/index') }}">Category</a>
+                </div>
+                <div class="col-auto">
+                    URL(product index)
+
+                    <a class="nav-link btn btn-outline-secondary" href="{{ url('products/index') }}">Product</a>
+                </div>
+
             </div>
         </div>
 

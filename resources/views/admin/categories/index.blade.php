@@ -15,12 +15,10 @@
                                 <div id="customerList">
                                     <div class="row g-4 mb-3">
                                         <div class="col-sm-auto">
-                                            <div>
-                                                <a href="{{ url('categories/create') }}">
-                                                    <button class="btn btn-success me-md-2 mb-2 ">+ Add</button>
-                                
-                                                </a>
-                                            </div>
+                                            <a href="{{ url('categories/create') }}">
+                                                <button style="background-color: #405189;"class="btn btn-primary">+ Add</button>
+
+                                            </a>
                                         </div>
                                         <div class="col-sm">
                                             <div class="d-flex justify-content-sm-end">
@@ -32,9 +30,9 @@
                                         </div>
                                     </div>
 
-                                    <div class="table-responsive table-card mt-3 mb-1">
-                                        <table class="table align-middle table-nowrap" id="customerTable">
-                                            <thead class="table-light">
+                                    <div class="table-responsive table-card mt-3 mb-1 p-3">
+                                        <table class="table table-bordered border-primary" id="customerTable">
+                                            <thead style="background-color: #405189; color: white;">
                                                 <tr>
                                                     <th scope="col" style="width: 50px;">
                                                         <div class="form-check">

@@ -18,9 +18,11 @@
                                             <div>
                                                 <a href="{{ url('products/create') }}">
                                                     <button style="background-color: #405189;"class="btn btn-primary">+ Add</button>
+
                                                 </a>
                                             </div>
                                         </div>
+
                                         <div class="col-sm">
                                             <div class="d-flex justify-content-sm-end">
                                                 <div class="search-box ms-2">
@@ -58,7 +60,7 @@
                                                         <td>{{ $product->description }}</td>
                                                         <td>
                                                             @if ($product->image)
-                                                                <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}" width="100" style="height: auto;">
+                                                                <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}" width="200" style="height: auto;">
                                                             @else
                                                                 No Image
                                                             @endif

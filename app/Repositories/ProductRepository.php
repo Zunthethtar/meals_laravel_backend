@@ -76,8 +76,6 @@ class ProductRepository implements ProductInterface{
     
 }
     
-
-
     public function FindId($id){
         return Product::findOrFail($id);
     }
