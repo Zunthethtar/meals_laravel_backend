@@ -1,4 +1,5 @@
 @extends('admin.layouts.master')
+
 @section('content')
     <div class="main-content">
         <div class="page-content">
@@ -7,7 +8,7 @@
                     <div class="col">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title mb-0">Add, Edit & Remove</h4>
+                                <h4 class="card-title mb-0">Manage Products</h4>
                             </div>
                             <!-- end card header -->
 
@@ -17,8 +18,7 @@
                                         <div class="col-sm-auto">
                                             <div>
                                                 <a href="{{ url('products/create') }}">
-                                                    <button style="background-color: #405189;"class="btn btn-primary">+ Add</button>
-
+                                                    <button class="btn btn-primary">+ Add Product</button>
                                                 </a>
                                             </div>
                                         </div>
@@ -35,19 +35,19 @@
 
                                     <div class="table-responsive table-card mt-3 mb-1 p-3">
                                         <table class="table table-bordered border-primary" id="customerTable">
-                                            <thead style="background-color: #405189; color: white;">
+                                            <thead class="thead-dark">
                                                 <tr>
                                                     <th scope="col" style="width: 50px;">
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" id="checkAll" value="option">
                                                         </div>
                                                     </th>
-                                                    <th class="sort" data-sort="name">Product name</th>
-                                                    <th class="sort" data-sort="name">Category name</th>
+                                                    <th class="sort" data-sort="name">Product Name</th>
+                                                    <th class="sort" data-sort="name">Category Name</th>
                                                     <th class="sort" data-sort="name">Description</th>
                                                     <th class="sort" data-sort="name">Image</th>
                                                     <th class="sort" data-sort="name">Price</th>
-                                                    <th class="sort">Process</th>
+                                                    <th class="sort">Actions</th>
                                                 </tr>
                                             </thead>
                                             
@@ -56,24 +56,20 @@
                                                     <tr>
                                                         <td>{{ $product->id }}</td>
                                                         <td>{{ $product->name }}</td>
-                                                        <td>{{ $product->category ? $product->category->name : "null" }}</td>
+                                                        <td>{{ $product->category ? $product->category->name : "N/A" }}</td>
                                                         <td>{{ $product->description }}</td>
                                                         <td>
                                                             @if ($product->image)
-                                                                <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}" width="200" style="height: auto;">
+                                                                <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}" width="100">
                                                             @else
                                                                 No Image
                                                             @endif
                                                         </td>
                                                         <td>{{ $product->price }}</td>
                                                         <td>
-                                                            <div class="d-flex">
-                                                                <a href="{{ url('products/' . $product->id . '/edit') }}">
-                                                                    <button class="btn btn-sm btn-success edit-item-btn">Edit</button>
-                                                                </a>
-                                                                <a href="{{ url('products/' . $product->id . '/delete') }}">
-                                                                    <button class="btn btn-sm btn-danger remove-item-btn ms-1">Delete</button>
-                                                                </a>
+                                                            <div class="btn-group">
+                                                                <a href="{{ url('products/' . $product->id . '/edit') }}" class="btn btn-success btn-sm">Edit</a>
+                                                                <a href="{{ url('products/' . $product->id . '/delete') }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -93,5 +89,6 @@
         </div>
     </div>
 @endsection
+
 
 
