@@ -56,7 +56,7 @@
                                                     <tr>
                                                         <td>{{ $product->id }}</td>
                                                         <td>{{ $product->name }}</td>
-                                                        <td>{{ $product->category ? $product->category->name : "N/A" }}</td>
+                                                        <td>{{ $product->category ? $product->category->name : "null" }}</td>
                                                         <td>{{ $product->description }}</td>
                                                         <td>
                                                             @if ($product->image)
