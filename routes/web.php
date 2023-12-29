@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UI\ProductController as UIProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/UI/products', [UIProductController::class, 'index']);  
+Route::get('cart', [UIProductController::class, 'cart'])->name('cart');
+Route::get('add-to-cart/{id}', [UIProductController::class, 'addToCart'])->name('add.to.cart');
+Route::patch('update-cart', [UIProductController::class, 'update'])->name('update.cart');
+Route::delete('remove-from-cart', [UIProductController::class, 'remove'])->name('remove.from.cart');
 
 Route::get('/', function () {
     return view('admin.layouts.master');
