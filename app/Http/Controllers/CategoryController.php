@@ -37,7 +37,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
        $this->categoryRepository->store($request);
-        return redirect('categories/index');
+        return redirect('admin/categories/index');
     }
 
     /**
@@ -63,7 +63,7 @@ class CategoryController extends Controller
     public function update($id,Request $request)
     {
         $this->categoryRepository->update($id,$request);
-        return redirect('categories/index');
+        return redirect('admin/categories/index');
     }
 
     /**
@@ -72,6 +72,6 @@ class CategoryController extends Controller
     public function delete($id)
     {
         $this->categoryRepository->delete($id);
-        return redirect('categories/index');
+        return redirect('admin/categories/index');
     }
 }

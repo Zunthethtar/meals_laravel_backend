@@ -13,7 +13,7 @@
                 </div>
             @endif
             <div class="container-fluid">
-                <form method='POST'enctype="multipart/form-data" action="{{ url('products/update/' . $product->id) }}">
+                <form method='POST'enctype="multipart/form-data" action="{{ url('admin/products/update/' . $product->id) }}">
                     @csrf
                     @method('POST')
                     <label class="form-label mt-3">Product Name</label>
@@ -42,7 +42,7 @@
                     <div class="mt-2">
 
                         <button class="btn btn-sm btn-success edit-item-btn"type="submit"> Edit</button>
-                        <a href="{{ url('products/index') }}"><button
+                        <a href="{{ url('admin/products/index') }}"><button
                             class="btn btn-sm btn-primary" type="button">Cancel</button></a>
                     </div>
 

@@ -15,7 +15,7 @@
                                 <div id="categoryList">
                                     <div class="row g-4 mb-3">
                                         <div class="col-sm-auto">
-                                            <a href="{{ url('categories/create') }}">
+                                            <a href="{{ url('admin/categories/create') }}">
                                                 <button class="btn btn-primary">+ Add Category</button>
                                             </a>
                                         </div>
@@ -49,8 +49,8 @@
                                                         <td>{{ $category->name }}</td>
                                                         <td>
                                                             <div class="btn-group">
-                                                                <a href="{{ url('categories/' . $category->id . '/edit') }}" class="btn btn-success btn-sm">Edit</a>
-                                                                <a href="{{ url('categories/' . $category->id . '/delete') }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this category?')">Delete</a>
+                                                                <a href="{{ url('admin/categories/' . $category->id . '/edit') }}" class="btn btn-success btn-sm">Edit</a>
+                                                                <a href="{{ url('admin/categories/' . $category->id . '/delete') }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this category?')">Delete</a>
                                                             </div>
                                                         </td>
                                                     </tr>

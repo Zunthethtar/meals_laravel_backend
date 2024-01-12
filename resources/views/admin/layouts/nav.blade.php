@@ -8,18 +8,18 @@
                      <img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="22">
                  </span>
                  <span class="logo-lg">
-                     <img src="{{ asset('assets/images/suluck.png') }}" alt="" height="17">
+                     <img src="{{ asset('assets/images/Meals.png') }}" alt="" width="160px" height="120px">
                  </span>
              </a>
-             <!-- Light Logo-->
+
              <a href="/admin" class="logo logo-light">
-                 <span class="logo-sm">
-                     <img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="22">
-                 </span>
-                 <span class="logo-lg">
-                     <img src="{{ asset('assets/images/suluck.png') }}" alt="" height="36">
-                 </span>
-             </a>
+                <span class="logo-sm">
+                    <img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="22">
+                </span>
+                <span class="logo-lg">
+                    <img src="{{ asset('assets/images/Meals.png') }}" alt="" width="160px" height="120px">
+                </span>
+            </a>             <!-- Light Logo-->
              <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
                  id="vertical-hover">
                  <i class="ri-record-circle-line"></i>
@@ -41,11 +41,11 @@
                          <div class="collapse menu-dropdown ms-4" id="sidebarLayouts">
                              <ul class="nav nav-sm flex-column">
                                  <li class="nav-item">
-                                    <a class="dropdown-item" style="color: white;" href="{{ url('categories/index') }}">Categories</a>
+                                    <a class="dropdown-item" style="color: white;" href="{{ url('admin/categories/index') }}">Categories</a>
                                     </li>
                                     
                                  <li class="nav-item mt-1">
-                                    <a class="dropdown-item" style="color: white;"  href="{{ url('products/index') }}">Products</a>
+                                    <a class="dropdown-item" style="color: white;"  href="{{ url('admin/products/index') }}">Products</a>
 
                                 </li>
                              </ul>

@@ -3,7 +3,7 @@
     <div class="main-content">
         <div class="page-content">
             <div class="container-fluid">
-                <form method="POST" action="{{ url('products/store') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ url('admin/products/store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="card">
                         <div class="card-header">
@@ -51,7 +51,7 @@
 
                             <div class="d-flex justify-content-end">
                                 <button type="submit" class="btn btn-success">Save</button>
-                                <a href="{{ url('products/index') }}" class="ms-2">
+                                <a href="{{ url('admin/products/index') }}" class="ms-2">
                                     <button type="button" class="btn btn-primary">Cancel</button>
                                 </a>
                             </div>

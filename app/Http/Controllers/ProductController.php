@@ -40,7 +40,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $this->productRepository->store($request);
-        return redirect('products/index');
+        return redirect('admin/products/index');
     }
 
     /**
@@ -68,7 +68,7 @@ class ProductController extends Controller
     public function update(Request $request,$id)
     {
         $this->productRepository->update($id,$request);
-        return redirect("products/index");
+        return redirect("admin/products/index");
     }
 
     /**
@@ -77,6 +77,6 @@ class ProductController extends Controller
     public function delete($id)
     {
         $this->productRepository->delete($id);
-        return redirect("products/index");
+        return redirect("admin/products/index");
     }
 }

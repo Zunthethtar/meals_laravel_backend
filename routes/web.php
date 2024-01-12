@@ -24,7 +24,11 @@ Route::delete('remove-from-cart', [UIProductController::class, 'remove'])->name(
 Route::get('/', function () {
     return view('admin.layouts.master');
 });
-
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('admin.layouts.master');
+    });
+Route::redirect('admin//','admin/dashboard');
 Route::get('/products/index',[ProductController::class,'index']);
 Route::get('/products/create',[ProductController::class,'create']);
 Route::post('/products/store',[ProductController::class,'store']);
@@ -39,3 +43,4 @@ Route::post('/categories/store',[CategoryController::class,'store']);
 Route::get('/categories/{id}/edit',[CategoryController::class,'edit']);
 Route::post('/categories/update/{id}',[CategoryController::class,'update']);
 Route::get('/categories/{id}/delete',[CategoryController::class,'delete']);
+});
