@@ -28,7 +28,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.layouts.master');
     });
-Route::redirect('admin//','admin/dashboard');
+Route::redirect('/','admin/dashboard');
 Route::get('/products/index',[ProductController::class,'index']);
 Route::get('/products/create',[ProductController::class,'create']);
 Route::post('/products/store',[ProductController::class,'store']);
