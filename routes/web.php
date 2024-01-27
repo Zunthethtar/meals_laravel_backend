@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
@@ -22,7 +25,7 @@ Route::get('cart', [UIProductController::class, 'cart'])->name('cart');
 Route::get('add-to-cart/{id}', [UIProductController::class, 'addToCart'])->name('add.to.cart');
 Route::patch('update-cart', [UIProductController::class, 'update'])->name('update.cart');
 Route::delete('remove-from-cart', [UIProductController::class, 'remove'])->name('remove.from.cart');
-Route::post('check-out',[UIProductController::class, 'checkout'])->name('check');
+Route::post('check-out',[UIProductController::class, 'checkout'])->name('check')->middleware('auth');;
 
 
 Route::get('/', function () {
@@ -58,5 +61,22 @@ Route::get('/categories/{id}/delete',[CategoryController::class,'delete']);
 });
 });
 Auth::routes();
+    Route::view('/', 'welcome');
+    Auth::routes();
+
+    Route::get('/login/admin',[LoginController::class,'showAdminLoginForm']);
+    Route::get('/register/admin', [RegisterController::class,'showAdminRegisterForm']);
+
+    Route::post('/login/admin', [LoginController::class,'adminLogin']);
+    Route::post('/register/admin', [RegisterController::class,'createAdmin']);
+
+    Route::view('/home', 'home')->middleware('auth');
+    Route::view('/admin', 'admin');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin/index',[AdminController::class,'index']);
+Route::get('/admin/create',[AdminController::class,'create']);
+Route::post('/admin/store',[AdminController::class,'store']);
+Route::get('/admin/{id}/edit',[AdminController::class,'edit']);
+Route::post('/admin/update/{id}',[AdminController::class,'update']);
+Route::get('/admin/{id}/delete',[AdminController::class,'delete']);

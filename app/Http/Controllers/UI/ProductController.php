@@ -9,9 +9,8 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\OrderDetail;
-
+use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
-use Illuminate\Support\Carbon as SupportCarbon;
 
 class ProductController extends Controller
 
@@ -179,6 +178,7 @@ class ProductController extends Controller
 
         $order =new Order;
         $order->date=$date;
+        $order->user_id = Auth::user()->id;
         $order->save();
 
         foreach($cart as $id=>$details){

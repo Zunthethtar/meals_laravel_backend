@@ -48,6 +48,13 @@
                                     <a class="dropdown-item" style="color: white;"  href="{{ url('admin/products/index') }}">Products</a>
 
                                 </li>
+                                <li class="nav-item mt-1">
+                                    <a class="dropdown-item" style="color: white;"  href="{{ url('admin/orders/index') }}">Order</a>
+
+                                <li class="nav-item mt-1">
+                                    <a class="dropdown-item" style="color: white;"  href="{{ url('admin/index') }}">Admin</a>
+
+                                </li>
                              </ul>
                          </div>
                      </li> <!-- end Dashboard Menu -->
