@@ -8,7 +8,7 @@
                     <div class="col">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title mb-0">Manage Products</h4>
+                                <h4 class="card-title mb-0">Manage Shop</h4>
                             </div>
                             <!-- end card header -->
 
@@ -17,8 +17,8 @@
                                     <div class="row g-4 mb-3">
                                         <div class="col-sm-auto">
                                             <div>
-                                                <a href="{{ url('admin/products/create') }}">
-                                                    <button class="btn btn-primary">+ Add Product</button>
+                                                <a href="{{ url('admin/shop/create') }}">
+                                                    <button class="btn btn-primary">+ Add Shop</button>
                                                 </a>
                                             </div>
                                         </div>
@@ -42,37 +42,36 @@
                                                             <input class="form-check-input" type="checkbox" id="checkAll" value="option">
                                                         </div>
                                                     </th>
-                                                    <th class="sort" data-sort="name">Product Name</th>
-                                                    <th class="sort" data-sort="name">Sub Category Name</th>
-                                                    <th class="sort" data-sort="name">Shop Name</th>
-                                                    <th class="sort" data-sort="name">Description</th>
+                                                    <th class="sort" data-sort="name">OwnerName</th>
+                                                    <th class="sort" data-sort="name">Name</th>
+                                                    <th class="sort" data-sort="name">Address</th>
+                                                    <th class="sort" data-sort="name">Phone</th>
                                                     <th class="sort" data-sort="name">Image</th>
-                                                    <th class="sort" data-sort="name">Price</th>
                                                     <th class="sort">Actions</th>
                                                 </tr>
                                             </thead>
                                             
                                             <tbody>
-                                                @foreach ($products as $product)
+                                                @foreach ($shops as $shop)
                                                     <tr>
-                                                        <td>{{ $product->id }}</td>
-                                                        <td>{{ $product->name }}</td>
-                                                        <td>{{ $product->sub_category ? $product->sub_category->name : "null" }}</td>
-                                                        <td>{{ $product->shop ? $product->shop->name : "null" }}</td>
-                                                        <td>{{ $product->description }}</td>
+                                                        <td>{{ $shop->id }}</td>
+                                                        <td>{{ $shop->name}}</td>
+                                                        <td>{{ $shop->owner ? $shop->owner->name : "null" }}</td>
+                                                        <td>{{ $shop->address }}</td>
+                                                        <td>{{ $shop->phone }}</td>
+
                                                         <td>
-                                                            @if ($product->image)
+                                                            @if ($shop->image)
                                                                    
-                                                                <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}" width="100">
+                                                                <img src="{{ asset('images/' . $shop->image) }}" alt="{{ $shop->name }}" width="100">
                                                             @else
                                                                 No Image
                                                             @endif
                                                         </td>
-                                                        <td>{{ $product->price }}</td>
                                                         <td>
                                                             <div class="btn-group">
-                                                                <a href="{{ url('admin/products/' . $product->id . '/edit') }}" class="btn btn-success btn-sm">Edit</a>
-                                                                <a href="{{ url('admin/products/' . $product->id . '/delete') }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
+                                                                <a href="{{ url('admin/shop/' . $shop->id . '/edit') }}" class="btn btn-success btn-sm">Edit</a>
+                                                                <a href="{{ url('admin/shop/' . $shop->id . '/delete') }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
                                                             </div>
                                                         </td>
                                                     </tr>

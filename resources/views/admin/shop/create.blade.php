@@ -3,11 +3,13 @@
     <div class="main-content">
         <div class="page-content">
             <div class="container-fluid">
-                <form method="POST" action="{{ url('admin/products/store') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ url('admin/shop/store') }}" enctype="multipart/form-data">
                     @csrf
+                    @method('POST')
+
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title mb-0">Add Product</h4>
+                            <h4 class="card-title mb-0">Add Shop</h4>
                         </div>
                         <div class="card-body">
                             @if ($errors->any())
@@ -19,31 +21,26 @@
                                     </ul>
                                 </div>
                             @endif
-
                             <div class="mb-3">
-                                <label for="name" class="form-label">Product Name</label>
-                                <input type="text" name="name" class="form-control" placeholder="Enter Product Name...">
+                                <label for="" class="form-label">Name</label>
+                                <input type="text" name="name" class="form-control" placeholder="Enter Shop name...">
                             </div>
-
                             <div class="mb-3">
-                                <label for="sub_category_id" class="form-label">Sub Category Name</label>
-                                <select name="sub_category_id" class="form-control" required>
-                                    @foreach ($sub_categories as $sub_category)
-                                        <option value="{{ $sub_category->id }}">{{ $sub_category->name }}</option>
+                                <label for="owner_id" class="form-label">Owner Name</label>
+                                <select name="owner_id" class="form-control" required>
+                                    @foreach ($owners as $owner)
+                                        <option value="{{ $owner->id }}">{{ $owner->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
+
                             <div class="mb-3">
-                                <label for="shop_id" class="form-label">Shop Name</label>
-                                <select name="shop_id" class="form-control" required>
-                                    @foreach ($shops as $shop)
-                                        <option value="{{ $shop->id }}">{{ $shop->name }}</option>
-                                    @endforeach
-                                </select>
+                                <label for="" class="form-label">Address</label>
+                                <input type="text" name="address" class="form-control" placeholder="Your Address...">
                             </div>
                             <div class="mb-3">
-                                <label for="description" class="form-label">Description</label>
-                                <input type="text" name="description" class="form-control" placeholder="Description...">
+                                <label for="" class="form-label">Phone</label>
+                                <input type="text" name="phone" class="form-control" placeholder="Enter Your Phone Number...">
                             </div>
 
                             <div class="mb-3">
@@ -51,14 +48,9 @@
                                 <input type="file" name="image" class="form-control" >
                             </div>
 
-                            <div class="mb-3">
-                                <label for="price" class="form-label">Price</label>
-                                <input type="text" name="price" class="form-control" placeholder="Price...">
-                            </div>
-
                             <div class="d-flex justify-content-end">
                                 <button type="submit" class="btn btn-success">Save</button>
-                                <a href="{{ url('admin/products/index') }}" class="ms-2">
+                                <a href="{{ url('admin/shop/index') }}" class="ms-2">
                                     <button type="button" class="btn btn-primary">Cancel</button>
                                 </a>
                             </div>

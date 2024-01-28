@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Interfaces\ProductInterface;
 use App\Models\Category;
+use App\Models\Shop;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -27,10 +29,11 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories=Category::all();
+        $sub_categories=SubCategory::all();
+        $shops=Shop::all();
 
         $this->productRepository->create();
-        return view('admin/products/create', compact('categories'));
+        return view('admin/products/create', compact("sub_categories",'shops'));
 
     }
 
@@ -56,10 +59,11 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $categories=Category::all();
+        $shops=Shop::all();
+        $sub_categories=SubCategory::all();
         $product = $this->productRepository->edit($id);
 
-        return view('admin.products.edit',compact('product',"categories"));
+        return view('admin.products.edit',compact('product',"sub_categories",'shops'));
     }
 
     /**

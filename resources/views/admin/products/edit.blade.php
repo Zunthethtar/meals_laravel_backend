@@ -18,12 +18,21 @@
                     @method('POST')
                     <label class="form-label mt-3">Product Name</label>
                     <input type="text" class="form-control" name="name" value="{{ $product->name }}">
-                    <label class="form-label mt-3">Category</label>
-                    <select name="category_id" class="form-select">
-                        @foreach ($categories as $category)
+                    <label class="form-label mt-3">Sub Category</label>
+                    <select name="sub_category_id" class="form-select">
+                        @foreach ($sub_categories as $sub_category)
 
-                            <option value="{{ $category->id }}" {{ $product->category_id }}>
-                                {{ $category->name }}
+                            <option value="{{ $sub_category->id }}" {{ $product->sub_category }}>
+                                {{ $sub_category->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    <label class="form-label mt-3"> Shop</label>
+                    <select name="shop_id" class="form-select">
+                        @foreach ($shops as $shop)
+
+                            <option value="{{ $shop->id }}" {{ $product->shop }}>
+                                {{ $shop->name }}
                             </option>
                         @endforeach
                     </select>

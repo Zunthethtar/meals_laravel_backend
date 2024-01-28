@@ -15,8 +15,9 @@ class ProductRepository implements ProductInterface{
     public function store(Request $request){
         $request->validate([
             'name' => 'required|unique:products|max:255',
-            'category_id' => 'required|exists:categories,id',
-            'description' => 'required|max:255',
+            'sub_category_id' => 'required|exists:sub_categories,id',
+            'shop_id'=>'required|exists:shops,id',
+            'description' => 'required|',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'price' => 'required|max:255',
         ]);
@@ -26,7 +27,9 @@ class ProductRepository implements ProductInterface{
     
         $product = new Product;
         $product->name = $request->name;
-        $product->category_id = $request->category_id;
+        $product->sub_category_id = $request->sub_category_id;
+        $product->shop_id = $request->shop_id;
+
         $product->description = $request->description;
         
         // Save the image to the public/images directory
@@ -45,7 +48,8 @@ class ProductRepository implements ProductInterface{
 {
     $request->validate([
         'name' => 'required|unique:products,name,'.$id,
-        'category_id' => "required|exists:categories,id",
+        'sub_category_id' => 'required|exists:sub_categories,id',
+        'shop_id'=>'required|exists:shops,id',
         'description' => "string",
         'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'price' => "string"
@@ -53,7 +57,8 @@ class ProductRepository implements ProductInterface{
 
     $product = $this->FindId($id);
     $product->name = $request->name;
-    $product->category_id = $request->category_id;
+    $product->sub_category_id = $request->sub_category_id;
+    $product->shop_id = $request->shop_id;
     $product->description = $request->description;
     $product->price = $request->price;
 
