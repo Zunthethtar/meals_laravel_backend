@@ -44,7 +44,7 @@
                             id="search-close-options"></span>
                     </div>
                     <div class="dropdown-menu dropdown-menu-lg" id="search-dropdown">
-                        <div data-simplebar style="max-height: 320px;">
+                        {{-- <div data-simplebar style="max-height: 320px;">
                             <!-- item-->
                             <div class="dropdown-header">
                                 <h6 class="text-overflow text-muted mb-0 text-uppercase">Recent Searches</h6>
@@ -119,7 +119,7 @@
                                     </div>
                                 </a>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="text-center pt-3 pb-1">
                             <a href="pages-search-results.html" class="btn btn-primary btn-sm">View All
@@ -151,7 +151,7 @@
                         </form>
                     </div>
                 </div>
-
+{{-- 
                 <div class="dropdown ms-1 topbar-head-dropdown header-item">
                     <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -215,7 +215,7 @@
                             <span class="align-middle">français</span>
                         </a>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="dropdown topbar-head-dropdown ms-1 header-item">
                     <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
@@ -257,7 +257,7 @@
                                 </div>
                             </div>
 
-                            <div class="row g-0">
+                            {{-- <div class="row g-0">
                                 <div class="col">
                                     <a class="dropdown-icon-item" href="#!">
                                         <img src="assets/images/brands/dropbox.png" alt="dropbox">
@@ -276,7 +276,7 @@
                                         <span>Slack</span>
                                     </a>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -787,7 +787,7 @@
                         </div>
                     </div>
                 </div>
-
+{{-- 
                 <div class="dropdown ms-sm-3 header-item topbar-user">
                     <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -846,7 +846,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
 

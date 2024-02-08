@@ -17,8 +17,8 @@
                                     <div class="row g-4 mb-3">
                                         <div class="col-sm-auto">
                                             <div>
-                                                <a href="{{ url('admin/products/create') }}">
-                                                    <button class="btn btn-primary">+ Add Product</button>
+                                                <a href="{{ url('admin/products/create') }}" class="btn btn-primary">
+                                                    + Add Product
                                                 </a>
                                             </div>
                                         </div>
@@ -60,7 +60,6 @@
                                                         <td>{{ $product->description }}</td>
                                                         <td>
                                                             @if ($product->image)
-                                                                   
                                                                 <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}" width="100">
                                                             @else
                                                                 No Image
@@ -68,9 +67,16 @@
                                                         </td>
                                                         <td>{{ $product->price }}</td>
                                                         <td>
+                                                            
                                                             <div class="btn-group">
-                                                                <a href="{{ url('admin/products/' . $product->id . '/edit') }}" class="btn btn-success btn-sm">Edit</a>
-                                                                <a href="{{ url('admin/products/' . $product->id . '/delete') }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
+                                                                <a href="{{ url('admin/products/' . $product->id . '/edit') }}"class="btn btn-success btn-sm" >
+                                                                    <img src="{{ asset('assets/images/pencil.svg') }}" alt="Edit Icon">
+                                                                </a>
+
+                                                                <a href="{{ url('admin/products/' . $product->id . '/delete') }}"class="btn btn-danger btn-sm"  onclick="return confirm('Are you sure you want to delete this product?')">
+                                                                    <img src="{{ asset('assets/images/trash.svg') }}" alt="Delete Icon">
+                                                                </a>
+
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -90,6 +96,3 @@
         </div>
     </div>
 @endsection
-
-
-
