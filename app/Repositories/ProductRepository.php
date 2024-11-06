@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class ProductRepository implements ProductInterface{
     public function index(){
-        return Product::all();
+        return Product::paginate(5);;
     }
     public function create(){
         return Category::all();

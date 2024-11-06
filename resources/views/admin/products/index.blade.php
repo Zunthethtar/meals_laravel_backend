@@ -85,6 +85,9 @@
                                         </table>
                                     </div>
                                 </div>
+                                <div class="mt-3">
+                                    @include('custom-pagination', ['paginator' => $products])
+                                </div>
                             </div>
                             <!-- end card -->
                         </div>

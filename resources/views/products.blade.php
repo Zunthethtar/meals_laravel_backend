@@ -1,40 +1,54 @@
-
-@extends('layout')
+@extends('master')
 
 @section('content')
 
-<div class="row">
+<style>
+    .product-container {
+        margin-top: 20px; /* Adjust the top margin as needed */
+    }
 
-    @foreach($products as $product)
+    .product-image {
+        max-width: 200px;
+        max-height: 400px; /* Adjust the maximum height as needed */
+        display: block;
+        margin: 0 auto; /* Center the image horizontally */
+    }
+</style>
 
-        <div class="col-xs-18 col-sm-6 col-md-3">
+<div class="container product-container">
 
-            <div class="thumbnail">
+    <div class="row">
 
-                <!-- Set a fixed width and height for the image -->
+        @foreach($products as $product)
 
-                <div class="caption">
+            <div class="col-md-4 mb-4">
+
+                <div class="card">
                     @if ($product->image)
-                    <img src="{{  asset('images/' . $product->image) }}" alt="{{ $product->name }}" width="200" height="200">
+                        <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}" class="card-img-top product-image">
                     @else
-                        No Image
+                        <img src="{{ asset('images/no-image.jpg') }}" alt="No Image" class="card-img-top product-image">
                     @endif
-                    <h4>{{ $product->name }}</h4>
-                    <p>{{ $product->description }}</p>
 
-                    <p>{{ $product->category ? $product->category->name : "null" }}</p>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $product->name }}</h5>
+                        <p class="card-text">{{ $product->description }}</p>
 
-                    <p><strong>Price: </strong> {{ $product->price }}$</p>
-                    <p class="btn-holder"><a href="{{ route('add.to.cart', $product->id) }}" class="btn btn-warning btn-block text-center" role="button">Add to cart</a></p>
+                        <p class="mb-2"><strong>Category: </strong>{{ $product->category ? $product->category->name : "null" }}</p>
+                        <p class="mb-2"><strong>Price: </strong>{{ $product->price }} MMK</p>
 
+                        <p class="btn-holder"><a href="{{ route('add.to.cart', $product->id) }}" class="cart-btn mt-3 " role="button"><img src="{{asset('assets/images/cart2.svg')}}"> Add to cart</a></p>
+                    </div>
                 </div>
 
             </div>
 
-        </div>
+        @endforeach
 
-    @endforeach
-
+    </div>
+    <div class="mt-3">
+        @include('custom-pagination', ['paginator' => $products])
+    </div>
 </div>
 
 @endsection
